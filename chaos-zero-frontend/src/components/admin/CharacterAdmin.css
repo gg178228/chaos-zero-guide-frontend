@@ -1,0 +1,288 @@
+.character-admin {
+  
+}
+
+.admin-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.admin-section-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.add-button {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.add-button:hover {
+  background: #45a049;
+}
+
+/* 캐릭터 목록 */
+.character-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.character-admin-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.character-admin-item:hover {
+  border-color: #4CAF50;
+}
+
+.character-admin-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.character-thumbnail,
+.character-thumbnail {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: contain;  /* 전체 보이게 */
+  background: #f5f5f5;
+  padding: 5px;  /* 여백 추가 */
+}
+
+
+.character-thumbnail-placeholder {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.character-admin-details h3 {
+  margin: 0 0 5px 0;
+  color: #333;
+}
+
+.character-admin-details p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.character-admin-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.edit-button {
+  background: #2196F3;
+  color: white;
+}
+
+.edit-button:hover {
+  background: #1976D2;
+}
+
+.delete-button {
+  background: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background: #d32f2f;
+}
+
+/* 모달 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-content h2 {
+  margin: 0 0 20px 0;
+  color: #333;
+}
+
+/* 폼 */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #999;
+  font-size: 12px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.cancel-button,
+.submit-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.cancel-button {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.cancel-button:hover {
+  background: #d0d0d0;
+}
+
+.submit-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.submit-button:hover {
+  background: #45a049;
+}
+
+/* 이미지 미리보기 */
+.image-preview {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.image-preview img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 파일 업로드 섹션 */
+.file-upload-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.file-upload-button {
+  padding: 10px 20px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  display: inline-block;
+}
+
+.file-upload-button:hover {
+  background: #45a049;
+}
+
+.file-name {
+  color: #4CAF50;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* URL 입력 토글 */
+.url-input-toggle {
+  margin-top: 10px;
+}
+
+.url-input-toggle summary {
+  cursor: pointer;
+  color: #666;
+  font-size: 13px;
+  user-select: none;
+}
+
+.url-input-toggle summary:hover {
+  color: #333;
+}
+
+.url-input-toggle input {
+  margin-top: 10px;
+}

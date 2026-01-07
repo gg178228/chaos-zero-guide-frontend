@@ -1,0 +1,57 @@
+.admin-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.admin-header h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.admin-subtitle {
+  color: #666;
+  font-size: 14px;
+}
+
+/* 탭 */
+.admin-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #ddd;
+}
+
+.admin-tabs button {
+  padding: 12px 30px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.admin-tabs button:hover {
+  color: #333;
+}
+
+.admin-tabs button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+/* 콘텐츠 */
+.admin-content {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}

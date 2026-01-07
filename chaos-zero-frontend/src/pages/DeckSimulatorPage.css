@@ -1,0 +1,302 @@
+.deck-simulator-page {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 헤더 */
+.simulator-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.simulator-header h1 {
+  margin: 0;
+  color: #333;
+}
+
+/* 레이아웃 */
+.simulator-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 20px;
+}
+
+/* 왼쪽: 카드 섹션 */
+.cards-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cards-section h2 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+.card-count {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+.card-item {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 12px;
+  position: relative;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.card-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border-color: #4CAF50;
+}
+
+.card-item:hover .click-hint {
+  opacity: 1;
+}
+
+.click-hint {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4CAF50;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 10px;
+  font-size: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+/* 오른쪽: 덱 섹션 */
+.deck-section {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  display: flex;
+  flex-direction: column;
+}
+
+.deck-section h2 {
+  margin: 0 0 15px 0;
+  color: #333;
+}
+
+/* 덱 통계 */
+.deck-stats {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.stat-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.stat-item:last-child {
+  margin-bottom: 0;
+}
+
+.stat-label {
+  font-weight: normal;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.stat-value.highlight {
+  font-size: 24px;
+  color: #FFD700;
+}
+
+/* 덱 초기화 버튼 */
+.clear-deck-button {
+  width: 100%;
+  padding: 10px;
+  background: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  transition: background-color 0.3s;
+}
+
+.clear-deck-button:hover {
+  background: #d32f2f;
+}
+
+/* 덱 카드 목록 */
+.deck-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.empty-deck {
+  text-align: center;
+  color: #999;
+  padding: 40px 20px;
+  font-size: 14px;
+}
+
+.deck-card-item {
+  background: #f5f5f5;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: border-color 0.2s;
+}
+
+.deck-card-item:hover {
+  border-color: #4CAF50;
+}
+
+.deck-card-info {
+  flex: 1;
+}
+
+.deck-card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.deck-card-name {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+}
+
+.deck-card-cost {
+  color: #2196F3;
+  font-size: 12px;
+}
+
+.deck-card-details {
+  display: flex;
+  gap: 10px;
+  font-size: 11px;
+  color: #666;
+}
+
+.deck-card-type {
+  background: #e0e0e0;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.deck-card-pt {
+  background: #FFD700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+/* 덱 카드 컨트롤 */
+.deck-card-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.deck-card-quantity {
+  font-weight: bold;
+  color: #333;
+  min-width: 30px;
+  text-align: center;
+}
+
+.remove-button,
+.add-button {
+  width: 25px;
+  height: 25px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.remove-button {
+  background: #f44336;
+  color: white;
+}
+
+.remove-button:hover {
+  background: #d32f2f;
+  transform: scale(1.1);
+}
+
+.add-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.add-button:hover {
+  background: #45a049;
+  transform: scale(1.1);
+}
+
+/* 스크롤바 스타일 */
+.card-grid::-webkit-scrollbar,
+.deck-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.card-grid::-webkit-scrollbar-track,
+.deck-list::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.card-grid::-webkit-scrollbar-thumb,
+.deck-list::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.card-grid::-webkit-scrollbar-thumb:hover,
+.deck-list::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
