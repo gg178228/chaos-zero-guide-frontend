@@ -1,16 +1,218 @@
-# React + Vite
+# 카오스 제로 나이트메어 공략 사이트 - 프론트엔드
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React 기반 웹 애플리케이션
 
-Currently, two official plugins are available:
+## 기술 스택
+- React 18
+- Vite
+- Axios
+- CSS3
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 실행 방법
+```bash
+npm install
+npm run dev
+```
 
-## React Compiler
+## 주요 기능
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. 캐릭터 시스템
+- 캐릭터 목록 보기
+- 캐릭터 선택 → 덱 빌더 진입
+- 캐릭터 이미지 표시
 
-## Expanding the ESLint configuration
+### 2. 카드 시스템
+- 전체 카드 목록
+- 캐릭터별 카드 필터링
+- 중립 카드 자동 포함
+- 카드 검색 기능
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 3. 덱 시뮬레이터 ⭐
+- 캐릭터별 덱 빌더
+- 카드 추가/제거
+- 카드 복제 기능
+- 실시간 PT 계산
+- 티어별 PT 한계 표시
+- 덱 초기화
+
+### 4. PT 계산기
+- 카드 획득 비용 계산
+- 덱 편집 비용 계산 (제거/복제)
+- 카테고리별 통계
+- 티어 한계 초과 경고
+
+### 5. 관리자 페이지
+- 캐릭터 CRUD
+- 카드 CRUD
+- 이미지 파일 업로드
+- PT 자동 계산 미리보기
+
+## 페이지 구조
+```
+/                      - 홈 (캐릭터 목록)
+/characters           - 캐릭터 목록
+/cards                - 전체 카드 목록
+/deck-simulator       - 덱 시뮬레이터
+/admin                - 관리자 페이지
+  ├─ 캐릭터 관리
+  └─ 카드 관리
+```
+
+## 컴포넌트 구조
+```
+src/
+├── pages/
+│   ├── CharacterListPage.jsx    - 캐릭터 목록
+│   ├── CardListPage.jsx          - 카드 목록
+│   ├── DeckSimulatorPage.jsx     - 덱 시뮬레이터
+│   └── AdminPage.jsx             - 관리자 페이지
+│
+├── components/
+│   └── admin/
+│       ├── CharacterAdmin.jsx    - 캐릭터 관리
+│       └── CardAdmin.jsx         - 카드 관리
+│
+├── api/
+│   ├── cardApi.js                - 카드 API
+│   ├── characterApi.js           - 캐릭터 API
+│   └── uploadApi.js              - 업로드 API
+│
+└── App.jsx                       - 메인 앱
+```
+
+## PT 계산 시스템 상세
+
+### 카드 획득 비용
+```javascript
+카드 카테고리:
+- 🔵 중립: 20 PT
+- 🔴 몬스터: 80 PT
+- 🚫 금지: 20 PT
+
+번뜩임 추가:
+- ✨ 번뜩임: +10 PT
+- 💫 신 번뜩임: +20 PT
+- 🎯 시작 카드: 표시만 (PT 추가 없음)
+```
+
+### 덱 편집 비용
+```javascript
+제거 비용:
+- 1회: 0 PT (무료)
+- 2회: 10 PT
+- 3회: 30 PT
+- 4회: 50 PT
+- 5회+: 70 PT
+- 시작/번뜩임 카드: +20 PT
+
+복제 비용:
+- 1회: 0 PT (무료)
+- 2회: 10 PT
+- 3회: 30 PT
+- 4회: 50 PT
+- 5회+: 70 PT
+- 신 번뜩임 카드: +20 PT
+```
+
+### 티어 시스템
+```javascript
+티어별 PT 한계:
+- 티어 1: 30 PT
+- 티어 2: 40 PT
+- 티어 3: 50 PT
+- ...
+- 티어 15: 170 PT
+
+계산식: 20 + (티어 × 10)
+```
+
+## UI 특징
+
+### 덱 시뮬레이터
+- 좌측: 사용 가능한 카드 그리드
+- 우측: 
+  - 티어 선택기
+  - PT 계산 상세 내역
+  - 덱 카드 목록
+  - 덱 초기화 버튼
+
+### 카드 표시
+- 코스트 (좌측 상단)
+- PT 점수 (우측 상단, 금색 배지)
+- 카테고리 배지 (좌측)
+- 번뜩임 아이콘
+- 카드 정보
+
+### PT 계산기
+- 카드 획득 비용 (카테고리별 분류)
+- 덱 편집 비용 (제거/복제 횟수)
+- 총 PT 비용
+- 티어 한계 비교
+- 초과/여유 표시
+
+## 스타일 가이드
+
+### 색상 테마
+```css
+- Primary: #667eea (보라)
+- Secondary: #764ba2 (진보라)
+- Success: #4CAF50 (녹색)
+- Warning: #FF9800 (주황)
+- Error: #f44336 (빨강)
+- Gold: #FFD700 (PT 배지)
+```
+
+### 카드 등급 색상
+```css
+- COMMON: #9e9e9e (회색)
+- RARE: #2196F3 (파랑)
+- EPIC: #9C27B0 (보라)
+- LEGENDARY: #FF9800 (주황)
+```
+
+## API 연동
+
+백엔드 URL: `http://localhost:8080/api`
+
+### 사용하는 엔드포인트
+- GET /characters - 캐릭터 목록
+- GET /cards - 전체 카드
+- GET /cards/character/{id} - 캐릭터별 카드
+- GET /cards/neutral - 중립 카드
+- POST /upload/card - 카드 이미지 업로드
+- POST /upload/character - 캐릭터 이미지 업로드
+
+## 업데이트 내역
+
+### 2025-01-10 (최신)
+- **덱 시뮬레이터 PT 계산 시스템 구현**
+  - 실시간 PT 계산
+  - 카드 획득 비용 계산
+  - 덱 편집 비용 계산 (제거/복제)
+  - 티어별 PT 한계 표시
+  - 초과/여유 경고 시스템
+
+- **카드 UI 개선**
+  - PT 배지 추가 (우측 상단)
+  - 카테고리 아이콘 표시
+  - 번뜩임 아이콘 표시
+  - 인게임 스타일 적용
+
+- **관리자 페이지 확장**
+  - 카드 카테고리 선택
+  - 번뜩임 체크박스
+  - PT 자동 계산 미리보기
+
+- **이미지 업로드 시스템**
+  - 파일 선택 UI
+  - 이미지 미리보기
+  - 자동 업로드 및 URL 저장
+
+### 이전 업데이트
+- 캐릭터 목록
+- 카드 검색 기능
+- 덱 시뮬레이터 기본 기능
+- 관리자 페이지 CRUD
+
+## 개발자
+- 프로젝트 시작일: 2025-01-09

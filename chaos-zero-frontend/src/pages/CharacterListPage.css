@@ -157,3 +157,68 @@
   font-weight: bold;
   color: #555;
 }
+
+/* ===== 카드 PT 배지 (오른쪽 상단) ===== */
+.card-pt-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+/* ===== 카드 카테고리 배지들 ===== */
+.card-badges {
+  position: absolute;
+  top: 45px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 10;
+}
+
+.card-badges .badge {
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.badge.neutral {
+  background: rgba(33, 150, 243, 0.9);
+  color: white;
+}
+
+.badge.monster {
+  background: rgba(244, 67, 54, 0.9);
+  color: white;
+}
+
+.badge.forbidden {
+  background: rgba(158, 158, 158, 0.9);
+  color: white;
+}
+
+.badge.glimmer {
+  background: rgba(255, 235, 59, 0.9);
+  color: #333;
+}
+
+.badge.divine {
+  background: rgba(156, 39, 176, 0.9);
+  color: white;
+}
+
+.badge.start {
+  background: rgba(76, 175, 80, 0.9);
+  color: white;
+}

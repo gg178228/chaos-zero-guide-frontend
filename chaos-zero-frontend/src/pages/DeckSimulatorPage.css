@@ -300,3 +300,160 @@
 .deck-list::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* ===== 티어 선택 ===== */
+.tier-selector {
+  background: #f5f5f5;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.tier-selector label {
+  display: block;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.tier-select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+}
+
+.tier-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* ===== PT 계산기 ===== */
+.pt-calculator {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.pt-calculator h3 {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 2px solid #667eea;
+  padding-bottom: 8px;
+}
+
+.pt-section {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.pt-section:last-child {
+  border-bottom: none;
+}
+
+.pt-section h4 {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.pt-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-size: 13px;
+}
+
+.pt-item span:first-child {
+  color: #666;
+}
+
+.pt-item span:last-child {
+  font-weight: bold;
+  color: #333;
+}
+
+.pt-subtotal {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  margin-top: 8px;
+  border-top: 1px solid #eee;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+/* ===== PT 총계 ===== */
+.pt-total {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+}
+
+.total-line {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.total-line .highlight {
+  font-size: 22px;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+.tier-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 10px;
+}
+
+.pt-warning {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.pt-success {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 8px;
+  color: #90EE90;
+}
+
+/* ===== 간단한 통계 ===== */
+.deck-stats-simple {
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.deck-stats-simple .stat-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.deck-stats-simple .stat-item span:last-child {
+  font-weight: bold;
+  color: #667eea;
+}
